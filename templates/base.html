@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>
+            {% block title %}
+
+            {% endblock %}
+        </title>
+        <link href="static/style.css" rel="stylesheet" type="text/css" />
+    </head>
+  
+    <body>
+        <div id = "wrap">
+            <header>
+                <h1 class = "title"><a href=" {{ url_for('index') }} ">Поиск<br> попутчиков</a></h1>
+                <div class="container-1">
+                    <div class="create_request_button"><div id="text_button2" >Создать заявку</div></div>
+                    <div class="chat"><div id="text_button1" >Чат</div></div>
+                    <div class="account">Личный<br>кабинет</div>
+                </div>
+            </header>
+            <nav>
+                <div class="menu">
+                    <div class="filter_name">Все заявки</div>
+                    <div class="filter_name">Просят подвести</div>
+                    <div class="filter_name">Могут подвести</div>
+                </div>
+            </nav>
+        </div>
+            
+        <main>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+        
+        <script src="static/script.js"></script>
+  </body>
+</html>
