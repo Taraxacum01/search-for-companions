@@ -18,7 +18,7 @@
                 <div class="container-1">
                     <div class="create_request_button"><div id="text_button2" >Создать заявку</div></div>
                     <div class="chat"><div id="text_button1" >Чат</div></div>
-                    <div class="account">Личный<br>кабинет</div>
+                    <div class="account"><a href=" {{ url_for('user_verification') }} ">Личный<br>кабинет</a></div>
                 </div>
             </header>
             <nav>
@@ -35,7 +35,5 @@
 
             {% endblock %}
         </main>
-        
-        <script src="static/script.js"></script>
   </body>
 </html>

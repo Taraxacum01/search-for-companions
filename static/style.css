@@ -107,6 +107,21 @@ body {
     cursor: pointer;
 }
 
+.account > a {
+    text-decoration: none;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+}
+
+.main_button {
+    display: inline-block;
+    height: 100px;
+    width: 200px;
+    background-color: black;
+}
+
 .title{
     font-size: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
