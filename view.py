@@ -1,5 +1,6 @@
-from app import app
+from app import app, db
 from flask import render_template
+
 
 @app.route('/')
 def index():
@@ -7,7 +8,9 @@ def index():
 
 @app.route('/main')
 def main():
-    return render_template('main.html')
+    posts = db.get_posts()
+    posts = [dict(post) for post in posts]
+    return render_template('index.html', posts=posts)
 
 @app.route('/user_verification')
 def user_verification():
