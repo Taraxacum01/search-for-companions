@@ -1,14 +1,14 @@
 from flask import request
-# from app.db.database import Database
+from db.database import Database
 
 DATABASE = 'posts.db'
 
-# db = Database(DATABASE)
-# db.init_db()
+db = Database(DATABASE)
+db.init_db()
+
 
 class User():
-    def __init__(self, id, name, username, password, login, email):
-        self.name = name
+    def __init__(self, id, username, password, login, email):
         self.username = username
         self.password = password
         self.login = login
@@ -22,8 +22,8 @@ def check_user():
 
 def add_user():
     # if request.form:
-    #     username = request.form.get('username')
     #     login = request.form.get('login')
+    #     username = login
     #     password = request.form.get('password')
     #     email = request.form.get('email')
     #     post = {'username': username, 'login': login, 'password': password, 'email': email}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="static/login.css">
+        <title>Подтверждение пользователя</title>
+    </head>
+    <body>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="/registration" method="post">
+                    <h1>Регистрация</h1>
+                    <input type="text" name="login" placeholder="Логин" required />
+                    <input type="email" name="email" placeholder="Почта" required />
+                    <input type="password" name="password" placeholder="Пароль" required />
+                    <button type="submit" style="margin-top: 10px;">Зарегистрироваться</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="/log_in" method="post">
+                    <h1>Вход</h1>
+                    <input type="text" placeholder="Логин" name="login" required />
+                    <input type="password" placeholder="Пароль" name="password" required />
+                    <a href="#">Забыли ваш пароль?</a>
+                    <button type="submit" style="margin-top: 10px;">Войти</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Добро пожаловать!</h1>
+                        <p>Если вы уже зарегистрированы, войдите в систему, указав свою личную информацию</p>
+                        <button class="ghost" id="signIn">Войти</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Привет, друг!</h1>
+                        <p>Введите свои личные данные и отправляйтесь в путешествие вместе с нами</p>
+                        <button  class="ghost" id="signUp" >Зарегистрироваться</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="static/login.js"></script>
+    </body>
+</html>
