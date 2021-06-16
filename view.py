@@ -1,4 +1,4 @@
-from app import app
+from app import app, db
 from flask import render_template, redirect
 from users.user_verification import check_user, add_user
 
@@ -8,7 +8,9 @@ def index():
 
 @app.route('/main')
 def main():
-    return render_template('main.html')
+    posts = db.get_posts()
+    posts = [dict(post) for post in posts]
+    return render_template('main.html', posts=posts)
 
 @app.route('/user_verification')
 def user_verification():
