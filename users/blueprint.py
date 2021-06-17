@@ -7,7 +7,6 @@ users = Blueprint('users', __name__, template_folder='templates', static_folder=
 
 @users.route('/', methods=['POST', 'GET'])
 def index():
-    # session.pop('userLogged', None)
     if 'userLogged' in session:
         return redirect(url_for('main'))
     elif request.method == 'POST':
@@ -24,3 +23,10 @@ def index():
         # db.insert_post(post)
 
     return render_template('users/index.html')
+
+@users.route('/log_out')
+def log_out():
+    if 'userLogged' in session:
+        session.pop('userLogged', None)
+    return redirect(url_for('index'))
+    
