@@ -7,6 +7,12 @@ class Database:
     def __init__(self, database_name):
         self.database_name = database_name
 
+    def len_list(conn):
+        cursor = conn.cursor()
+        cursor.execute("select * from posts")
+        results = cursor.fetchall()
+        return 2 + len(results)
+
     def get_db_connection(self):
         conn = sqlite3.connect(self.database_name)
         conn.row_factory = sqlite3.Row
@@ -23,7 +29,13 @@ class Database:
             self.create_db()
             with self.get_db_connection() as conn:
                 conn.execute(INSERT_QUERY)
-                #conn.execute(INSERT_QUERY)
+                conn.execute(INSERT_QUERY)
+                conn.execute(INSERT_QUERY)
+                conn.execute(INSERT_QUERY)
+                posts = conn.execute(DELETE_POST, [2])
+                n = Database.len_list(conn)
+                for i in range(3, n):
+                    conn.execute(CHANGE_POST_ID, [i])
                 conn.execute(INSERT_ADMIN)
                 conn.commit()
 
@@ -48,7 +60,10 @@ class Database:
 
     def delete_post(self, id):
         with self.get_db_connection() as conn:
-            posts = conn.execute(DELETE_POST, id)
+            posts = conn.execute(DELETE_POST, [id])
+            n = Database.len_list(conn)
+            for i in range(id+1, n):
+                posts = conn.execute(CHANGE_POST_ID, [i])
             conn.commit()
         return posts 
 

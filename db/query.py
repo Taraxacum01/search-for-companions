@@ -23,6 +23,10 @@ VALUES (?, ?, ?, ?, ?, ?)
 
 DELETE_POST = """DELETE FROM posts WHERE id = ?"""
 
+CHANGE_POST_ID = """UPDATE posts SET id = id-1 WHERE id = ?"""
+
+COUNT_POST = """SELECT COUNT(*) FROM posts"""
+
 INSERT_QUERY = """
 INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text)
 VALUES ('Карточка водителя', 'type-1', 1, 1, 2, 'Я из будущего, я вас жду')
@@ -51,6 +55,8 @@ VALUES ('GoSum216', 'qwerty', 'qwerty@qwerty', true, false)
 """
 
 DELETE_PERSON = """DELETE FROM persons WHERE is = ?"""
+
+CHANGE_PERSON_ID = """UPDATE persons SET id = id-1 WHERE id = ?"""
 
 BAN_PERSON = """UPDATE persons SET isBanned = true WHERE id = ?"""
 
