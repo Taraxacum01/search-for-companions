@@ -47,7 +47,7 @@ VALUES (?, ?, ?, false, false)
 
 INSERT_ADMIN = """
 INSERT INTO persons (login, password, email, isAdmin, isBanned)
-VALUES ('GoSum216', 'qwerty', qwerty@qwerty, true, false)
+VALUES ('GoSum216', 'qwerty', 'qwerty@qwerty', true, false)
 """
 
 DELETE_PERSON = """DELETE FROM persons WHERE is = ?"""
