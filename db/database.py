@@ -23,6 +23,8 @@ class Database:
             self.create_db()
             with self.get_db_connection() as conn:
                 conn.execute(INSERT_QUERY)
+                #conn.execute(INSERT_QUERY)
+                conn.execute(INSERT_ADMIN)
                 conn.commit()
 
     def get_posts(self):
@@ -37,7 +39,7 @@ class Database:
 
     def insert_post(self, post):
         with self.get_db_connection() as conn:
-            parameters = [post['isDriver'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['time'], post['text']]
+            parameters = [post['isDriver'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['text']]
             cur = conn.cursor()
             cur.execute(INSERT_POST_QUERY, parameters)
             lastrowid = cur.lastrowid
@@ -49,6 +51,7 @@ class Database:
             posts = conn.execute(DELETE_POST, id)
             conn.commit()
         return posts 
+
     # def insert_tag(self, tag):
     #     with self.get_db_connection() as conn:
     #         parameters = [tag]
