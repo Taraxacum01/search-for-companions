@@ -1,11 +1,6 @@
 from flask import request
 from db.database import Database
-
-DATABASE = 'posts.db'
-
-db = Database(DATABASE)
-db.init_db()
-
+from config import db
 
 class User():
     def __init__(self, id, username, password, login, email):
