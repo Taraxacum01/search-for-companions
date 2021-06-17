@@ -9,22 +9,27 @@
     <body>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                {% for message in get_flashed_messages() %}
-                    <div>{{ message }}</div>
+                {% for category, message in get_flashed_messages(True) %}
+                    {% if category == "registration" %}
+                        <div>{{ message }}</div>
+                    {% endif %}
                 {% endfor %}
-                <form action=" {{ url_for('users.index') }} " method="POST">
+                <form action=" {{ url_for('users.registration') }} " method="POST">
                     <h1>Регистрация</h1>
                     <input type="text" name="login" placeholder="Логин" required />
                     <input type="email" name="email" placeholder="Почта" required />
                     <input type="password" name="password" placeholder="Пароль" required />
+                    <input type="password" name="password2" placeholder="Подтвердите пароль" required />
                     <button type="submit" style="margin-top: 10px;">Зарегистрироваться</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                {% for message in get_flashed_messages() %}
-                    <div>{{ message }}</div>
+                {% for category, message in get_flashed_messages(True) %}
+                    {% if category == "log_in" %}
+                        <div>{{ message }}</div>
+                    {% endif %}
                 {% endfor %}
-                <form action=" {{ url_for('users.index') }} " method="POST">
+                <form action=" {{ url_for('users.log_in') }} " method="POST">
                     <h1>Вход</h1>
                     <input type="text" placeholder="Логин" name="login" required />
                     <input type="password" placeholder="Пароль" name="password" required />

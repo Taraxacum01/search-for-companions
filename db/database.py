@@ -67,6 +67,14 @@ class Database:
             conn.commit()
         return posts 
 
+    def insert_user(self, login, password, email):
+        with self.get_db_connection() as conn:
+            parameters = [login, password, email]
+            cur = conn.cursor()
+            cur.execute(INSERT_PERSON_QUERY, parameters)
+            conn.commit()
+        return True
+
     # def insert_tag(self, tag):
     #     with self.get_db_connection() as conn:
     #         parameters = [tag]
