@@ -7,8 +7,9 @@
 {% block content %}
     <div class="container-2">
         {% for post in posts %}
-            <div class="{{ post.isType }}">
+            <div class="type-1">
                 <div class="text-in-card">{{ post.isDriver }}</div>
+                <div class="text-in-card">{{ post.time }}</div>
             </div>
         {% endfor %}
     </div>
