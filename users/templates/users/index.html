@@ -9,11 +9,6 @@
     <body>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                {% for category, message in get_flashed_messages(True) %}
-                    {% if category == "registration" %}
-                        <div>{{ message }}</div>
-                    {% endif %}
-                {% endfor %}
                 <form action=" {{ url_for('users.registration') }} " method="POST">
                     <h1>Регистрация</h1>
                     <input type="text" name="login" placeholder="Логин" required />
@@ -26,7 +21,7 @@
             <div class="form-container sign-in-container">
                 {% for category, message in get_flashed_messages(True) %}
                     {% if category == "log_in" %}
-                        <div>{{ message }}</div>
+                        <div class="log_in">{{ message }}</div>
                     {% endif %}
                 {% endfor %}
                 <form action=" {{ url_for('users.log_in') }} " method="POST">
@@ -44,6 +39,11 @@
                         <button class="ghost" id="signIn">Войти</button>
                     </div>
                     <div class="overlay-panel overlay-right">
+                        {% for category, message in get_flashed_messages(True) %}
+                            {% if category == "registration" %}
+                                <div class="registration">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
                         <h1>Привет, друг!</h1>
                         <p>Введите свои личные данные и отправляйтесь в путешествие вместе с нами</p>
                         <button  class="ghost" id="signUp" >Зарегистрироваться</button>
