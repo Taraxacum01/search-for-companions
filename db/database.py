@@ -69,11 +69,31 @@ class Database:
 
     def insert_user(self, login, password, email):
         with self.get_db_connection() as conn:
-            parameters = [login, password, email]
             cur = conn.cursor()
+            cur.execute(f"SELECT COUNT() as 'count' FROM persons WHERE email LIKE '{email}'")
+            res = cur.fetchone()
+            cur.execute(f"SELECT COUNT() as 'count' FROM persons WHERE login LIKE '{login}'")
+            result = cur.fetchone()
+
+            if res['count'] > 0 or result['count'] > 0:
+                return False
+            parameters = [login, password, email]
             cur.execute(INSERT_PERSON_QUERY, parameters)
             conn.commit()
         return True
+
+    def get_user(self, user_id):
+        with self.get_db_connection() as conn:
+            person = conn.execute(PERSON_QUERY, [user_id]).fetchone()
+        return person
+
+    def get_user_by_login(self, login):
+        with self.get_db_connection() as conn:
+            person = conn.execute(PERSON_BY_LOGIN_QUERY, [login]).fetchone()
+            if not person:
+                return False
+            return person
+
 
     # def insert_tag(self, tag):
     #     with self.get_db_connection() as conn:

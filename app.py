@@ -1,6 +1,5 @@
 from flask import Flask
 from config import Configuration
-from db.database import Database
 from users.blueprint import users
 
 app = Flask(__name__)

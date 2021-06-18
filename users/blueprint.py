@@ -17,8 +17,10 @@ def log_in():
     if 'userLogged' in session:
         return redirect(url_for('main'))
     elif request.method == 'POST':
-        if request.form['login'] == '123' and request.form['password'] == '123':
+        user = db.get_user_by_login(request.form['login'])
+        if user and check_password_hash(user['password'], request.form['password']):
             session['userLogged'] = request.form['login']
+            session['userLoggedID'] = user['id']
             return redirect(url_for('main'))
         else:
             flash('Неправильно введен логин или пароль', category="log_in")
@@ -33,6 +35,7 @@ def registration():
             if res:
                 return redirect(url_for('main'))
             else:
+                flash('Такой пользователь уже существует', category="registration")
                 redirect(url_for('users.index'))
         else:
             flash('Неправильно заполнены поля', category="registration")

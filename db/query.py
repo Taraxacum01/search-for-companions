@@ -49,6 +49,10 @@ INSERT INTO persons (login, password, email, isAdmin, isBanned)
 VALUES (?, ?, ?, false, false)
 """
 
+PERSON_QUERY = """SELECT * FROM persons WHERE id = ?"""
+
+PERSON_BY_LOGIN_QUERY = """SELECT * FROM persons WHERE login = ? LIMIT 1"""
+
 INSERT_ADMIN = """
 INSERT INTO persons (login, password, email, isAdmin, isBanned)
 VALUES ('GoSum216', 'qwerty', 'qwerty@qwerty', true, false)
