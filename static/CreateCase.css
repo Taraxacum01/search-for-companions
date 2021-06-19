@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  background-image: url(Images/road.jpg);
+	background-attachment: fixed; 
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  height: 95vh;
+	margin: -20px 0 50px;
+}
+
+.tittle{
+  font-size: 48px;
+}
+
+label{
+  font-size: 24px;
+}
+
+.container {  
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+  0 10px 10px rgba(0,0,0,0.22);
+  margin: 50px;
+  max-width: 108vw;
+  height: 1080px;
+  padding: 40px 20px 10px 20px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.container_1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.container_2{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container_3{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.field {
+  margin: 10px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field-write {
+  margin: 10px;
+  display: block;
+  height: 3.5vh;
+  width: 30vw;
+}
+
+.field-write.text{
+  min-width: 200px;
+}
+
+.field-write.text_2{
+  width: 12vw;
+  min-width: 200px;
+}
+
+.field.dt{
+  min-width: 200px;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 150px;
+}
+
+.order-msg {
+  margin: 20px;
+  padding: 15px;
+  font: inherit;
+  -webkit-appearance: none;
+  color: #1f1f1f;
+  border: 1px solid #e0e0e0;
+  z-index: 1;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: top;
+  width: 50vw;
+  line-height: 1.25;
+  height: 150px;
+  resize: none;
+  min-width: 200px;
+}
+
+.button{
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.floating-button {
+  text-decoration: none;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-size: 16px;
+  padding: 2px 5px;
+  font-stretch: ultra-condensed;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.floating-button:hover {
+  background-color: rgba(47, 163, 62, 0.878);
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+
+.wrapper{
+  display: inline-flex;
+  background: #fff;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 20px 15px;
+}
+.wrapper .option{
+  background: #fff;
+  height: 100%;
+  width: 12vw;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+.wrapper .option .dot{
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before{
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: rgba(47, 163, 62, 0.878);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2{
+  border-color: rgba(47, 163, 62, 0.878);
+  background: rgba(47, 163, 62, 0.878);
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+  color: #fff;
+}
