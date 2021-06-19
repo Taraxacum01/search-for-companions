@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
-
-{% block title %}
-    Поиск попутчиков
-{% endblock %}
-
-{% block content %}
-    <h2>Страница не найдена. Вернуться на <a href=" {{ url_for('index') }} ">главную</a> страницую</р2>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/page404.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <img class="img" src="/static/Images/404.png">
+        <a href=" {{ url_for('main') }} " class="floating-button">Вернуться на главную</a>
+    </div>
+</body>
+</html>
