@@ -25,3 +25,7 @@ def about(id):
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page404.html')
+
+@app.route('/addpost')
+def addpost():
+    return render_template('addpost.html')
