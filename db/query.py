@@ -4,8 +4,8 @@ CREATE TABLE IF NOT EXISTS posts (
     isDriver TEXT,
     isType TEXT,
     idPerson INTEGER,
-    idBeginPoint INTEGER,
-    idEndPoint INTEGER,
+    idBeginPoint TEXT,
+    idEndPoint TEXT,
     time DATETIME DEFAULT CURRENT_TIMESTAMP,
     text TEXT,
     FOREIGN KEY (idPerson) REFERENCES persons (id) 
@@ -17,8 +17,8 @@ POSTS_QUERY = """SELECT * FROM posts"""
 POST_QUERY = """SELECT * FROM posts WHERE id = ?"""
 
 INSERT_POST_QUERY = """
-INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text)
-VALUES (?, ?, ?, ?, ?, ?)
+INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text, time)
+VALUES (?, ?, ?, ?, ?, ?, ?)
 """
 
 DELETE_POST = """DELETE FROM posts WHERE id = ?"""
@@ -80,3 +80,10 @@ CREATE TABLE IF NOT EXISTS comments (
     FOREIGN KEY (idPost) REFERENCES posts (id)
 )
 """
+
+INSERT_COMMENT = """
+INSERT INTO comments (idPerson, idPost, text)
+VALUE (?, ?, ?)
+"""
+
+GET_COMMENTS_BY_ID_POST = """SELECT * FROM comments WHERE idPost = ? ORDER BY time DESC"""

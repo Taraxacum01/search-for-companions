@@ -51,7 +51,7 @@ class Database:
 
     def insert_post(self, post):
         with self.get_db_connection() as conn:
-            parameters = [post['isDriver'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['text']]
+            parameters = [post['isDriver'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['text'], post['time']]
             cur = conn.cursor()
             cur.execute(INSERT_POST_QUERY, parameters)
             lastrowid = cur.lastrowid
@@ -94,6 +94,20 @@ class Database:
                 return False
             return person
 
+    def insert_comment(self, idPerson, idPost, text):
+        with self.get_db_connection() as conn:
+            parameters = [idPerson, idPost, text]
+            cur = conn.cursor()
+            cur.execute(INSERT_COMMENT, parameters)
+            lastrowid = cur.lastrowid
+            conn.commit()
+        return lastrowid
+
+
+    def get_comments(self, idPost):
+        with self.get_db_connection() as conn:
+            comments = conn.execute(GET_COMMENTS_BY_ID_POST, [idPost]).fetchall()
+        return comments
 
     # def insert_tag(self, tag):
     #     with self.get_db_connection() as conn:
