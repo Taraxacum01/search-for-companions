@@ -48,9 +48,9 @@ body {
 	border-radius: 45px;
 	margin: 10px 20px;
 	font-size: 20px;
-	text-transform: uppercase;
+	font-stretch: ultra-condensed;
 	text-align: center;
-	letter-spacing: 3px;
+	letter-spacing: 1px;
 	font-weight: 600;
 	color: #524f4e;
 	background: white;

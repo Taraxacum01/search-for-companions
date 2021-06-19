@@ -6,12 +6,12 @@
   <link rel="stylesheet" href="/static/CreateCase.css">
 </head>
 <body>
-  <form>
+  <form action=" {{ url_for('addpost') }} " method="POST">
       <div class="container">
         <h1 class="tittle">Создание заявки</h1>
         <div class="wrapper">
-          <input type="radio" name="select" id="option-1" checked>
-          <input type="radio" name="select" id="option-2">
+          <input type="radio" name="select" id="option-1" value="driver" checked>
+          <input type="radio" name="select" id="option-2" value="passenger">
             <label for="option-1" class="option option-1">
               <div class="dot"></div>
                <span>Водитель</span>
@@ -33,7 +33,7 @@
         <div class="container_3">
           <div class="field dt">
             <label>Дата отправки</label>
-            <input class="field-write text_2" type="date" name="data" placeholder="18.06.21" required min=""/>
+            <input class="field-write text_2" type="date" name="date" placeholder="18.06.21" required min=""/>
           </div>
           <div class="field dt">
             <label>Время отправки</label>

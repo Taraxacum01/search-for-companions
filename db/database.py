@@ -29,14 +29,6 @@ class Database:
             self.create_db()
             with self.get_db_connection() as conn:
                 conn.execute(INSERT_QUERY)
-                conn.execute(INSERT_QUERY)
-                conn.execute(INSERT_QUERY)
-                conn.execute(INSERT_QUERY)
-                posts = conn.execute(DELETE_POST, [2])
-                n = Database.len_list(conn)
-                for i in range(3, n):
-                    conn.execute(CHANGE_POST_ID, [i])
-                conn.execute(INSERT_ADMIN)
                 conn.commit()
 
     def get_posts(self):
@@ -51,12 +43,11 @@ class Database:
 
     def insert_post(self, post):
         with self.get_db_connection() as conn:
-            parameters = [post['isDriver'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['text'], post['time']]
+            parameters = [post['isDriver'], post['isType'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['text'], post['time']]
             cur = conn.cursor()
             cur.execute(INSERT_POST_QUERY, parameters)
-            lastrowid = cur.lastrowid
             conn.commit()
-        return lastrowid
+        return True
 
     def delete_post(self, id):
         with self.get_db_connection() as conn:
@@ -108,40 +99,3 @@ class Database:
         with self.get_db_connection() as conn:
             comments = conn.execute(GET_COMMENTS_BY_ID_POST, [idPost]).fetchall()
         return comments
-
-    # def insert_tag(self, tag):
-    #     with self.get_db_connection() as conn:
-    #         parameters = [tag]
-    #         cur = conn.cursor()
-    #         tag = cur.execute('SELECT * FROM tags WHERE title = ?', parameters).fetchone()
-    #         if tag:
-    #             lastrowid = tag['id']            
-    #         else:
-    #             cur.execute(INSERT_TAG_QUERY, parameters)
-    #             lastrowid = cur.lastrowid
-    #             conn.commit()
-    #     return lastrowid
-
-    # def insert_post_tag(self, post_id, tag_id):
-    #     with self.get_db_connection() as conn:
-    #         parameters = [post_id, tag_id]
-    #         conn.execute(INSERT_POST_TAG_QUERY, parameters)
-    #         conn.commit()
-
-    # def get_max_id(self, table):
-    #     with self.get_db_connection() as conn:
-    #         max_id = conn.execute(f"SELECT MAX(id) as id FROM {table}").fetchone()
-    #     return max_id["id"]
-
-    # def select_tags_for_post(self, post_id):
-    #     with self.get_db_connection() as conn:
-    #         parameters = [post_id]
-    #         tags = conn.execute(TAGS_FOR_POST, parameters).fetchall()
-    #     tags = [dict(tag) for tag in tags]
-    #     return tags
-
-    # def select_count_for_tags(self):
-    #     with self.get_db_connection() as conn:
-    #         tags = conn.execute(SELECT_COUNT_POSTS_FOR_TAGS).fetchall()
-    #     tags = [dict(tag) for tag in tags]
-    #     return tags

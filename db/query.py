@@ -1,7 +1,7 @@
 CREATE_TABLE_POSTS = """
 CREATE TABLE IF NOT EXISTS posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    isDriver TEXT,
+    isDriver BOOLEAN,
     isType TEXT,
     idPerson INTEGER,
     idBeginPoint TEXT,
@@ -29,7 +29,7 @@ COUNT_POST = """SELECT COUNT(*) FROM posts"""
 
 INSERT_QUERY = """
 INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text)
-VALUES ('Карточка водителя', 'type-1', 1, 1, 2, 'Я из будущего, я вас жду')
+VALUES (true, 'driver', 1, 'Вертодром', 'ЖД вокзал', 'Я из будущего, я вас жду')
 """
 ################################################################
 

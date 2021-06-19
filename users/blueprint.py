@@ -19,6 +19,7 @@ def log_in():
     elif request.method == 'POST':
         user = db.get_user_by_login(request.form['login'])
         if user and check_password_hash(user['password'], request.form['password']):
+            session.permanent = True
             session['userLogged'] = request.form['login']
             session['userLoggedID'] = user['id']
             return redirect(url_for('main'))
@@ -33,7 +34,8 @@ def registration():
             hash = generate_password_hash(request.form['password'])
             res = db.insert_user(request.form['login'], hash, request.form['email'])
             if res:
-                return redirect(url_for('main'))
+                flash('Вы успешно зарегистрированы', category="registration")
+                return redirect(url_for('users.index'))
             else:
                 flash('Такой пользователь уже существует', category="registration")
                 redirect(url_for('users.index'))
