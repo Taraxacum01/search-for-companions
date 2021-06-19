@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/CreateCase.css">
+</head>
+<body>
+  <form>
+      <div class="container">
+        <h1 class="tittle">Создание заявки</h1>
+        <div class="wrapper">
+          <input type="radio" name="select" id="option-1" checked>
+          <input type="radio" name="select" id="option-2">
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+               <span>Водитель</span>
+               </label>
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+               <span>Пассажир</span>
+            </label>
+         </div>
+        <div class="container_1">
+        <div class="field">
+          <label>Пункт отправки</label>
+          <input class="field-write text" type="text" name="BeginPoint" placeholder="Владивосток" required />
+        </div>
+        <div class="field">
+          <label>Пункт назначения</label>
+          <input class="field-write text" type="text" name="EndPoint" placeholder="Москва" required />
+        </div>
+        <div class="container_3">
+          <div class="field dt">
+            <label>Дата отправки</label>
+            <input class="field-write text_2" type="date" name="data" placeholder="18.06.21" required min=""/>
+          </div>
+          <div class="field dt">
+            <label>Время отправки</label>
+            <input class="field-write text_2" type="time" name="time" placeholder="9:00 +-15 минут" required min=""/>
+          </div>
+        </div>
+      </div>
+      <div class="container_2">
+          <label>Комментарий</label>
+          <textarea name="message" class="order-msg">Hi, Bro!</textarea>
+          <input class="button floating-button" type="submit" />
+      </div>
+    </div>
+  </form>
+</body>
+</html>
