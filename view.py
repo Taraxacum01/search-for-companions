@@ -41,7 +41,7 @@ def addpost():
         begin = request.form.get('BeginPoint')
         end = request.form.get('EndPoint')
         text = request.form.get('message')
-        time = request.form.get('date') + ' ' + request.form.get('time')
+        time = request.form.get('date') + ' | ' + request.form.get('time')
 
         post = {'isDriver': isDriver, 'isType': is_type, 'idPerson': id_person, 'idBeginPoint': begin, 'idEndPoint': end, 'text': text, 'time': time}
         res = db.insert_post(post)

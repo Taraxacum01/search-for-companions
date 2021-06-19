@@ -8,10 +8,32 @@
     <div class="container-2">
         {% for post in posts %}
             <a href="{{ url_for('about', id=post.id)}}" target="_blank">    
-                <div class="type-1">
-                    <div class="text-in-card">{{ post.isDriver }}</div>
-                    <div class="text-in-card">{{ post.time }}</div>
-                    <div class="text-in-card">{{ post.id }}</div>
+                <div class="{{ post.isType }}">
+                    <div class="text-in-card">
+                        <div class="container-icon">
+                            <span class="material-icons class icon">
+                                {% if post.isType == 'driver' %}
+                                    directions_car
+                                {% else %}
+                                    directions_car
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="text-container">
+                            <div class="glue-text">
+                                <div class="text_title">Пункт отправки:</div>
+                                <div class="text_info">{{ post.idBeginPoint }}</div>
+                            </div>
+                            <div class="glue-text">
+                                <div class="text_title">Пункт прибытия:</div>
+                                <div class="text_info">{{ post.idEndPoint }}</div>
+                            </div>
+                            <div class="glue-text">
+                                <div class="text_title">Дата и время отправки:</div>
+                                <div class="text_info">{{ post.time }}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </a>
         {% endfor %}
