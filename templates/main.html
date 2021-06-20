@@ -15,9 +15,10 @@
                                 {% if post.isType == 'driver' %}
                                     directions_car
                                 {% else %}
-                                    directions_car
+                                    person
                                 {% endif %}
                             </span>
+                            <div class="nickname">{{ post.driverName }}</div>
                         </div>
                         <div class="text-container">
                             <div class="glue-text">

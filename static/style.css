@@ -104,7 +104,7 @@ html {
     transition: .4s;
 }
 
-.account > a {
+.account > a , .exit_account > a{
     text-decoration: none;
     display: inline-block;
     height: 100%;
@@ -121,7 +121,7 @@ html {
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: #f6f5f7;
-    background-image: url(Images/banner.jpg);
+    background-image: url(Images/main.jpg);
     background-attachment: fixed; 
     background-repeat: repeat-x;
     background-size: cover;
@@ -254,6 +254,7 @@ body {
     justify-content: space-around;
     justify-items: center;
     flex-wrap: wrap;
+    margin: 20px;
 }
   
 .container-2 .driver{
@@ -289,6 +290,12 @@ body {
     box-shadow: rgba(0,0,0,.8) 0 3px 8px -3px;
   
 }
+
+.container-2 a {
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+}
   
 .text-in-card{
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -318,19 +325,12 @@ body {
     cursor: pointer;
 }
   
-.exit_account > a {
-    text-decoration: none;
-    display: inline-block;
-    height: 100%;
-    color: inherit;
-}
-  
 .icon{
     color: white;
     text-align: center;
     display: inline-block;
     border-radius: 50%;
-    margin: 30px;
+    margin: 20px 30px 7px 30px;
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 3px rgb(0 0 0 / 24%);
@@ -344,7 +344,9 @@ body {
   
 .container-icon{
     display: flex;
-    justify-content: center;
+    justify-content: center;  
+    flex-direction: column;
+    align-items: center;
 }
   
 .text_info{
@@ -367,4 +369,11 @@ body {
   
 .glue-text{
     margin: 10px;
+}
+
+.nickname{
+    color:white;
+    font-size: 22px;
+    text-shadow: 1px 2px 7px black;
+    margin-bottom: 8px;
 }

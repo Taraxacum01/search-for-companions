@@ -43,7 +43,7 @@ class Database:
 
     def insert_post(self, post):
         with self.get_db_connection() as conn:
-            parameters = [post['isDriver'], post['isType'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['text'], post['time']]
+            parameters = [post['isDriver'], post['isType'], post['idPerson'], post['idBeginPoint'], post['idEndPoint'], post['text'], post['time'], post['driverName']]
             cur = conn.cursor()
             cur.execute(INSERT_POST_QUERY, parameters)
             conn.commit()

@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="container-2">
-        <div class="type-1">
+        <div class="{{ post.isType }}">
             <div class="text-in-card">{{ post.isDriver }}</div>
             <div class="text-in-card">{{ post.time }}</div>
             <div class="text-in-card">{{ post.id }}</div>

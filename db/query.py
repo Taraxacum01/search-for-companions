@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS posts (
     idEndPoint TEXT,
     time DATETIME DEFAULT CURRENT_TIMESTAMP,
     text TEXT,
+    driverName TEXT,
     FOREIGN KEY (idPerson) REFERENCES persons (id) 
      
 );
@@ -17,8 +18,8 @@ POSTS_QUERY = """SELECT * FROM posts"""
 POST_QUERY = """SELECT * FROM posts WHERE id = ?"""
 
 INSERT_POST_QUERY = """
-INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text, time)
-VALUES (?, ?, ?, ?, ?, ?, ?)
+INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text, time, driverName)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 """
 
 DELETE_POST = """DELETE FROM posts WHERE id = ?"""
@@ -28,8 +29,8 @@ CHANGE_POST_ID = """UPDATE posts SET id = id-1 WHERE id = ?"""
 COUNT_POST = """SELECT COUNT(*) FROM posts"""
 
 INSERT_QUERY = """
-INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text)
-VALUES (true, 'driver', 1, 'Вертодром', 'ЖД вокзал', 'Я из будущего, я вас жду')
+INSERT INTO posts (isDriver, isType, idPerson, idBeginPoint, idEndPoint, text, time, driverName)
+VALUES (true, 'driver', 1, 'Вертодром', 'ЖД вокзал', 'Я из будущего, я вас жду', '20.06.2021 | 21:00', '12345')
 """
 ################################################################
 

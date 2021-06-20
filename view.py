@@ -42,8 +42,9 @@ def addpost():
         end = request.form.get('EndPoint')
         text = request.form.get('message')
         time = request.form.get('date') + ' | ' + request.form.get('time')
+        name = session['userLogged']
 
-        post = {'isDriver': isDriver, 'isType': is_type, 'idPerson': id_person, 'idBeginPoint': begin, 'idEndPoint': end, 'text': text, 'time': time}
+        post = {'isDriver': isDriver, 'isType': is_type, 'idPerson': id_person, 'idBeginPoint': begin, 'idEndPoint': end, 'text': text, 'time': time, 'driverName': name}
         res = db.insert_post(post)
         if res:
             return redirect(url_for('main'))
