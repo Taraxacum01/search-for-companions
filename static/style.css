@@ -10,7 +10,10 @@
       url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
   
-  
+a {
+    color: #fff;
+    text-decoration: none;
+}
   
 html {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
