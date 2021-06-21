@@ -52,9 +52,6 @@ class Database:
     def delete_post(self, id):
         with self.get_db_connection() as conn:
             posts = conn.execute(DELETE_POST, [id])
-            n = Database.len_list(conn)
-            for i in range(id+1, n):
-                posts = conn.execute(CHANGE_POST_ID, [i])
             conn.commit()
         return posts 
 
