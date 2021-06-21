@@ -3,6 +3,7 @@ from flask import Flask
 from config import Configuration
 from users.blueprint import users
 import datetime
+from flask_socketio import SocketIO 
 
 app = Flask(__name__)
 app.config.from_object(Configuration)
@@ -10,3 +11,5 @@ app.config.from_object(Configuration)
 app.register_blueprint(users, url_prefix="/user_verification")
 
 app.permanent_session_lifetime = datetime.timedelta(days=10)
+
+socketio = SocketIO(app)
