@@ -14,6 +14,18 @@ def main():
         return render_template('main.html', posts=db.get_posts())
     return redirect(url_for('index'))
 
+@app.route('/drivers')
+def drivers():
+    if 'userLogged' in session:
+        return render_template('postsDrivers.html', posts=db.get_driver_posts())
+    return redirect(url_for('index'))
+
+@app.route('/passengers')
+def passengers():
+    if 'userLogged' in session:
+        return render_template('postsPassengers.html', posts=db.get_passengers_posts())
+    return redirect(url_for('index'))
+
 @app.route('/posts/<int:id>')
 def about(id):
     if 'userLogged' in session:

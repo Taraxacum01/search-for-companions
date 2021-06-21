@@ -36,6 +36,16 @@ class Database:
             posts = conn.execute(POSTS_QUERY).fetchall()
         return posts
 
+    def get_driver_posts(self):
+        with self.get_db_connection() as conn:
+            posts = conn.execute(POSTS_DRIVER_QUERY).fetchall()
+        return posts
+
+    def get_passengers_posts(self):
+        with self.get_db_connection() as conn:
+            posts = conn.execute(POSTS_PASSENGERS_QUERY).fetchall()
+        return posts
+
     def get_post(self, id):
         with self.get_db_connection() as conn:
             post = conn.execute(POST_QUERY, [id]).fetchone()

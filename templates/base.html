@@ -26,9 +26,9 @@
             </div>
         </nav>
         <div class="filter">
-            <div class="filter_name">Все заявки</div>
-            <div class="filter_name">Просят подвести</div>
-            <div class="filter_name">Могут подвести</div>
+            <div class="filter_name"><a href=" {{ url_for('main') }} ">Все заявки</a></div>
+            <div class="filter_name"><a href=" {{ url_for('passengers') }} ">Просят подвести</a></div>
+            <div class="filter_name"><a href=" {{ url_for('drivers') }} ">Могут подвести</a></div>
         </div>
         <main>
             {% block content %}
