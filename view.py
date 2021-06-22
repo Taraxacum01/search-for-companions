@@ -1,8 +1,9 @@
-from app import app
+from app import app, socketio
 from config import db
-from flask import render_template, redirect, request, flash
+from flask import render_template, redirect, request
 from flask.globals import session
 from flask.helpers import url_for
+from flask_socketio import send, emit, join_room, leave_room
 
 @app.route('/')
 def index():
@@ -69,4 +70,7 @@ def delete_post(id, name):
             db.delete_post(id)
         return redirect(url_for('main'))
     return redirect(url_for('index'))
-    
+
+@socketio.on('message')
+def handle_message(message):
+    send(message)
