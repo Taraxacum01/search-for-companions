@@ -62,11 +62,11 @@ def addpost():
             return redirect(url_for('main'))
     return render_template('addpost.html')
 
-@app.route('/delete_post/<int:id>')
-def delete_post(id):
+@app.route('/delete_post/<int:id><name>')
+def delete_post(id, name):
     if 'userLogged' in session:
-        
-        db.delete_post(id)
+        if session['userLogged'] == name or session['userLoggedisAdmin']:
+            db.delete_post(id)
         return redirect(url_for('main'))
     return redirect(url_for('index'))
     

@@ -22,6 +22,7 @@ def log_in():
             session.permanent = True
             session['userLogged'] = request.form['login']
             session['userLoggedID'] = user['id']
+            session['userLoggedisAdmin'] = user['isAdmin']
             return redirect(url_for('main'))
         else:
             flash('Неправильно введен логин или пароль', category="log_in")
