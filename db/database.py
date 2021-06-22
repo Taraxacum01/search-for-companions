@@ -61,9 +61,9 @@ class Database:
 
     def delete_post(self, id):
         with self.get_db_connection() as conn:
-            posts = conn.execute(DELETE_POST, [id])
+            conn.execute(DELETE_POST, [id])
             conn.commit()
-        return posts 
+        return 
 
     def insert_user(self, login, password, email):
         with self.get_db_connection() as conn:
@@ -106,3 +106,11 @@ class Database:
         with self.get_db_connection() as conn:
             comments = conn.execute(GET_COMMENTS_BY_ID_POST, [idPost]).fetchall()
         return comments
+
+    def check_id(self, id):
+        try:
+            print(*self.get_post(id))
+        except:
+            return False
+        return True
+        

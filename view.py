@@ -17,21 +17,21 @@ def main():
 @app.route('/drivers')
 def drivers():
     if 'userLogged' in session:
-        return render_template('postsDrivers.html', posts=db.get_driver_posts())
+        return render_template('main.html', posts=db.get_driver_posts())
     return redirect(url_for('index'))
 
 @app.route('/passengers')
 def passengers():
     if 'userLogged' in session:
-        return render_template('postsPassengers.html', posts=db.get_passengers_posts())
+        return render_template('main.html', posts=db.get_passengers_posts())
     return redirect(url_for('index'))
 
 @app.route('/posts/<int:id>')
 def about(id):
     if 'userLogged' in session:
-        if id not in range(1, len(db.get_posts()) + 1):
-            return "", 404
-        return render_template('post.html', post=db.get_post(id))
+        if db.check_id(id):
+            return render_template('post.html', post=db.get_post(id))
+        return render_template('page404.html')
     return redirect(url_for('index'))
 
 @app.errorhandler(404)
@@ -61,3 +61,12 @@ def addpost():
         if res:
             return redirect(url_for('main'))
     return render_template('addpost.html')
+
+@app.route('/delete_post/<int:id>')
+def delete_post(id):
+    if 'userLogged' in session:
+        
+        db.delete_post(id)
+        return redirect(url_for('main'))
+    return redirect(url_for('index'))
+    

@@ -10,11 +10,6 @@
       url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
   
-a {
-    color: #fff;
-    text-decoration: none;
-}
-  
 html {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -111,6 +106,13 @@ html {
     text-decoration: none;
     display: inline-block;
     height: 100%;
+    width: 100%;
+    color: inherit;
+}
+
+.filter_name > a {
+    text-decoration: none;
+    display: inline-block;
     width: 100%;
     color: inherit;
 }
@@ -374,9 +376,17 @@ body {
     margin: 10px;
 }
 
-.nickname{
+.nickname {
     color:white;
     font-size: 22px;
     text-shadow: 1px 2px 7px black;
     margin-bottom: 8px;
+}
+
+.delete {
+    width: 100px;
+    height: 20px;
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
 }
