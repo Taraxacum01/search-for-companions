@@ -16,20 +16,19 @@
 
     <body>
         <header class="header">
-            <h1>Поиск попутчиков</h1>
-        </header>
-        <nav class="nav">
-            <div class="create_request_button"><a href=" {{ url_for('addpost') }} ">Создать заявку</a></div>
             <div class="glue">
+              <img class="logo" src="/static/Images/logo.png">
+              <div class="bottom-logo"><div id="bl1">ПОИСК</div><div id="bl2">ПОПУТЧИКОВ</div></div>
+            </div>
+            <div class="create-button-container">
+              <div class="create_request_button"><a href=" {{ url_for('addpost') }} ">Создать заявку</a></div>
+            
+            <div class="glue2">
                 <div class="account">{{session['userLogged']}}</div>
                 <div class="exit_account"><a href=" {{ url_for('users.log_out') }} ">Выйти из аккаунта</a></div>
             </div>
-        </nav>
-        <div class="filter">
-            <div class="filter_name"><a href=" {{ url_for('main') }} ">Все заявки</a></div>
-            <div class="filter_name"><a href=" {{ url_for('passengers') }} ">Просят подвести</a></div>
-            <div class="filter_name"><a href=" {{ url_for('drivers') }} ">Могут подвести</a></div>
-        </div>
+          </div>
+      </header>
         <main>
             {% block content %}
 

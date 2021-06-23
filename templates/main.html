@@ -5,6 +5,22 @@
 {% endblock %}
 
 {% block content %}
+
+    <div class="filter">
+    
+        <div class="filter-container2">
+          <div class="filter-container">
+            <input class="hide" id="hd-1" type="checkbox" >
+              <label class="filter_button" for="hd-1"><p id="filter_button_name">Фильтр</p></label>
+                <div class="buttons">
+                  <div class="request_button"><a href=" {{ url_for('main') }} ">Все заявки</a></div>
+                  <div class="request_button"><a href=" {{ url_for('passengers') }} ">Просят подвести</a></div>
+                  <div class="request_button"><a href=" {{ url_for('drivers') }} ">Могут подвести</a></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="container-2">
         {% for post in posts %}
             <a href="{{ url_for('about', id=post.id)}}" target="_blank">    
