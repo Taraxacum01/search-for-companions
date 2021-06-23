@@ -84,12 +84,19 @@
   }
   
   
-  .account > a , .exit_account > a, .create_request_button > a, .container-2 a {
+  .account > a , .exit_account > a, .create_request_button > a {
     text-decoration: none;
     display: inline-block;
     height: 100%;
     width: 100%;
     color: inherit;
+}
+
+.container-2 a {
+  text-decoration: none;
+  display: inline-block;
+  height: 100%;
+  color: inherit;
 }
 
 .request_button a {
@@ -354,7 +361,8 @@
         color: white;
         cursor: pointer;
         justify-content: center;
-        
+        align-items: center;
+        margin: 15px 0;
       }
       
       .hide:checked + label {

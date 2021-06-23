@@ -31,7 +31,7 @@ def log_in():
 @users.route('/registration', methods=['POST', 'GET'])
 def registration():
     if request.method == 'POST':
-        if len(request.form['login']) > 4 and len(request.form['password']) > 4 and len(request.form['email']) > 4 and request.form['password'] == request.form['password2']:
+        if len(request.form['login']) > 4 and len(request.form['password']) > 4 and len(request.form['email']) > 4 and request.form['password'] == request.form['password2'] and request.form['email'].endswith('dvfu.ru'):
             hash = generate_password_hash(request.form['password'])
             res = db.insert_user(request.form['login'], hash, request.form['email'])
             if res:
