@@ -97,9 +97,8 @@ class Database:
             parameters = [idPerson, idPost, text]
             cur = conn.cursor()
             cur.execute(INSERT_COMMENT, parameters)
-            lastrowid = cur.lastrowid
             conn.commit()
-        return lastrowid
+        return True
 
 
     def get_comments(self, idPost):

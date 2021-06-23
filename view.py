@@ -30,7 +30,7 @@ def passengers():
 def about(id):
     if 'userLogged' in session:
         if db.check_id(id):
-            return render_template('post.html', post=db.get_post(id))
+            return render_template('post.html', post=db.get_post(id), messages=db.get_comments(id))
         return render_template('page404.html')
     return redirect(url_for('index'))
 
@@ -69,3 +69,9 @@ def delete_post(id, name):
             db.delete_post(id)
         return redirect(url_for('main'))
     return redirect(url_for('index'))
+
+@app.route('/send_comment/<int:id>', methods=['POST', 'GET'])
+def comments(id):
+    if request.method == 'POST':
+        db.insert_comment(session['userLogged'], id, request.form.get('message'))
+    return redirect(url_for('about', id))
