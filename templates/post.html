@@ -43,7 +43,7 @@
           </div> 
         </div>
         <div class="chat-container">
-            <form action=" {{ url_for('comments'), post.id }} " method="POST">
+            <form action=" {{ url_for('comments', id=post.id) }} " method="POST">
                 <label>Чат</label>
                 <input class="comment_write" name="comment"  rows="5"/>
                 <input class="button floating-button" type="submit" />
