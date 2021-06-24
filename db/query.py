@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS posts (
 );
 """
 
-POSTS_QUERY = """SELECT * FROM posts"""
+POSTS_QUERY = """SELECT * FROM posts ORDER BY id DESC"""
 POSTS_DRIVER_QUERY = """SELECT * FROM posts WHERE isDriver = true"""
 POSTS_PASSENGERS_QUERY = """SELECT * FROM posts WHERE isDriver = false"""
 POST_QUERY = """SELECT * FROM posts WHERE id = ?"""

@@ -42,7 +42,6 @@ def page_not_found(error):
 def addpost():
     if request.method == 'POST':
         select = request.form.getlist('select')
-        print(select)
         if select[0] == 'driver':
             isDriver = True
             is_type = 'driver'

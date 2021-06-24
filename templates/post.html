@@ -1,20 +1,57 @@
-{% extends 'base.html' %}
-
-{% block title %}
-    Поиск попутчиков
-{% endblock %}
-
-{% block content %}
-    <div class="container-2">
-        <div class="{{ post.isType }}">
-            <div class="text-in-card">{{ post.isDriver }}</div>
-            <div class="text-in-card">{{ post.time }}</div>
-            <div class="text-in-card">{{ post.id }}</div>
-            <div class="text-in-card">{{ post.isType }}</div>
-            <div class="text-in-card">{{ post.idBeginPoint }}</div>
-            <div class="text-in-card">{{ post.idEndPoint }}</div>
-            <div class="text-in-card">{{ post.text }}</div>
-            <a class="delete" href="{{ url_for('delete_post', id=post.id, name=post.driverName)}}">Удалить</a>
+<!DOCT!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/post.css">
+</head>
+    <body>
+      <header class="header">
+        <div class="glue">
+          <img class="logo" src="/static/Images/logo.png">
+          <div class="bottom-logo"><div id="bl1">ПОИСК</div><div id="bl2">ПОПУТЧИКОВ</div></div>
         </div>
-    </div>
-{% endblock %}
+        <div class="create-button-container">
+          <div class="create_request_button"><a href=" {{ url_for('main') }} ">Вернуться на главную</a></div>
+        
+        <div class="glue2">
+            <div class="account">{{session['userLogged']}}</div>
+            <div class="exit_account"><a href=" {{ url_for('users.log_out') }} ">Выйти из аккаунта</a></div>
+        </div>
+      </div>
+      </header>
+      <div class="wrapper">          
+        <div class="block_item">
+          <h1 class="tittle">Описание заявки</h1>
+          <div class="container_1">
+            <div class="field">
+              <label>Пункт отправки</label>
+              <span class="field-write text">{{ post.idBeginPoint }}</span>
+            </div>
+            <div class="field">
+              <label>Пункт назначения</label>
+              <span class="field-write text">{{ post.idEndPoint }}</span>
+            </div>
+            <div class="field">
+              <label>Дата и время отправки</label>
+              <span class="field-write text">{{ post.time }}</span>
+            </div> 
+            <div class="field comment_container">
+              <label>Комментарий</label>
+              <p class="field-write text comment">{{ post.text }}</p>
+            </div>
+          </div> 
+        </div>
+        <div class="chat-container">
+            <form action=" {{ url_for('comments'), post.id }} " method="POST">
+                <label>Чат</label>
+                <input class="comment_write" name="comment"  rows="5"/>
+                <input class="button floating-button" type="submit" />
+            </form>
+          <div class="chat">{% for comment in messages %}
+              <div>{{ comment.text }}</div>
+          {% endfor %}</div>
+        </div>
+      </div>           
+    </body>
+</html>

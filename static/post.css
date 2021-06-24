@@ -1,0 +1,336 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+}
+
+
+input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #f6f5f7;
+    background-image: url(/static/Images/post.jpg);
+	  background-attachment: fixed; 
+    background-repeat: repeat-x;
+    background-size: cover;
+    margin: -1px;
+}
+
+.wrapper{
+    display: flex;
+    height: 100%;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.block {
+    display: flex;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.block_item {
+    background-color: white;
+    width: 600px;
+    padding: 50px;
+    font-size: 100%;
+    justify-content:space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    margin-top:20px;
+    border-radius: 30px 30px 0px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.336);
+}
+
+.tittle{
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+
+label{
+    font-size: 21px;
+  }
+  .exit_account > a, .create_request_button > a {
+    text-decoration: none;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+}
+  
+  .container {  
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    max-width: 100vw;
+    padding: 10px 20px 10px 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  
+  }
+  
+  .container_1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .container_2{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .container_3{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .field {
+    margin: 10px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .field-write {
+    margin: 10px;
+    display: block;
+    height: 3.5vh;
+    width: 30vw;
+  }
+  
+  .field-write.text{
+    width: 100%;
+    font-size: 15px;
+    color: gray;
+  }
+  
+  .field-write.text_2{
+    width: 12vw;
+    min-width: 200px;
+  }
+  
+  .field.dt{
+    min-width: 200px;
+  }
+  
+  input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 150px;
+  }
+
+.comment_text{
+  width: 40px;
+  height: 30px;
+}
+.comment_container{
+  display: flex;
+}
+
+
+.field-write.text.comment {
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  height: 122px;
+  border: 2px solid black;
+}
+
+.chat-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 0px 0px 20px 20px;
+  width: 600px;
+  margin-bottom: 40px;
+}
+.chat{
+  background-color: #eee;
+  border-radius: 2px;
+  padding: 5px;
+  border: 2px solid black;
+  height: 100px;
+  margin: 20px;
+  overflow-y: scroll;
+}
+
+.comment_write{
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 400px;
+  height: 122px;
+}
+
+
+.button{
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.floating-button {
+  text-decoration: none;
+  width: 150px;
+  height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-size: 18px;
+  padding: 2px 5px;
+  font-stretch: ultra-condensed;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.floating-button:hover {
+  background-color: rgba(47, 163, 62, 0.878);
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+
+.create-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.create_request_button {
+  color: black;
+  display: flex;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  min-height: 20px;
+  min-width: 50px;
+  max-height: 40px;
+  max-width: 200px;
+  text-decoration: none;
+  color: black;
+  padding: 25px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-stretch: ultra-condensed;
+  background: white;
+  border-color: rgb(58, 126, 55);
+  border-style: solid;
+  border-width: 1px;
+  transition: .4s;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+
+
+
+
+.create_request_button:hover{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: rgb(58,164,73);
+    border-color: rgba(0, 0, 0, 0.39);
+    transition: .4s;
+    cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  flex:2;
+  
+}
+
+.logo{
+  width: 140px;
+}
+
+.bottom-logo{
+  font-size: 14px;
+  display: flex;
+  justify-content: center; 
+}
+
+#bl1{
+  color:black;
+}
+#bl2{
+  color: rgb(46,154,84);
+}
+
+.account{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  font-size: 22px;
+  color: black;
+  text-shadow: black;
+  transition: .4s;
+}
+
+.glue{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.glue2{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.exit_account{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center; 
+  font-size: 13px;
+  color: grey;
+  
+  transition: .4s;
+}
+
+.exit_account:hover{
+  color: rgba(128, 128, 128, 0.726);
+  
+  transition: .4s;
+  cursor: pointer;
+}
